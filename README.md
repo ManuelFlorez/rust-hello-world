@@ -18,3 +18,8 @@ cargo build
 cargo run
 ``` 
 
+## add dependencies
+
+```bash
+cargo add time
+```
