@@ -15,6 +15,6 @@ cargo build
 ## Ejecutar proyecto con 'Cargo'
 
 ```bash
-./target/debug/hello_world                    
+cargo run
 ``` 
 
