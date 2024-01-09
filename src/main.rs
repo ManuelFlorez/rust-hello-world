@@ -1,42 +1,27 @@
-fn main() {    
-    
-    let vector = vec![
-        "monday",
-        "tuesday",
-        "wednesday",
-        "thursday",
-        "friday",
-        "saturday",
-        "sunday"
-    ];
+fn bubble_sort<T: std::cmp::PartialOrd>(arr: &mut [T]) {
+    let len = arr.len();
+    let mut swapped;
 
-    let mut counter = 0;
     loop {
-        println!("{}", vector[counter]);
-        counter += 1;
-        if counter == vector.capacity() {
+        swapped = false;
+
+        for i in 0 .. len -1 {
+            if arr[i] > arr[i + 1] {
+                arr.swap(i, i + 1);
+                swapped = true;
+            }
+        }
+
+        if !swapped {
             break;
         }
     }
+}
 
-    println!("--------------------------1");
+fn main() {    
+    let mut nums = vec![5, 3, 1, 4, 2];
+    println!("Before sorting: {:?}", nums);
 
-    counter = 0;
-    while counter < vector.capacity() {
-        println!("{}", vector[counter]);
-        counter += 1;
-    }
-
-    println!("--------------------------2");
-
-    for dia in 0..vector.capacity() {
-        println!("{}", vector[dia]);
-    }
-
-    println!("--------------------------3");
-
-    for dia in vector.iter() {
-        println!("{}", dia);
-    }
-
+    bubble_sort(&mut nums);
+    println!("After sorting: {:?}", nums);
 }
